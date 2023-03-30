@@ -5,7 +5,8 @@ The application works as follows:
 
 - You load your google account data into a `.env` file, data such as:
   - Login
-  - password
+  - Password
+  - OpenAI key
   - Link to the form itself
   - The ChatGPT model you want to use.
 
