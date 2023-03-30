@@ -4,11 +4,11 @@ This is a Google Forms parser that collects questions and answer choices and use
 The application works as follows:
 
 - You load your google account data into a `.env` file, data such as:
-  - Login
-  - Password
-  - OpenAI key
-  - Link to the form itself
-  - The ChatGPT model you want to use.
+  - `P_LOGIN` - <i>User login</i>;
+  - `P_Key` - <i>User password</i>;
+  - `OPENAI_API_KEY` - <i>OpenAI API key</i>;
+  - `P_LINK` - <i>Link to the form itself</i>;
+  - `OPENAI_MODEL` - <i>The ChatGPT model you want to use</i>;
 
 - The data is extracted using `puppetter`
 
