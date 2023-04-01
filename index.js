@@ -10,10 +10,19 @@ async function main() {
     executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe",
   });
   await parser.navigateToForm(P_LINK);
-  try {
-    await parser.fillLoginForm(P_LOGIN, P_KEY);
-  } catch (error) {
-    console.log(error);
+  if (P_LOGIN && P_KEY) {
+    try {
+      await parser.fillLoginForm(P_LOGIN, P_KEY);
+      await parser.findQuestion();
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
+    try {
+      await parser.findQuestion();
+    } catch (error) {
+      console.log(error);
+    }
   }
   const data = parser.getResult();
   await parser.closeBrowser();

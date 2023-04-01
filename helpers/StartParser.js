@@ -34,7 +34,6 @@ class StartParser {
     await this.page.click("#passwordNext");
     await this.page.waitForNavigation();
     await this.page.waitForSelector(".Qr7Oae");
-    await this.findQuestion();
   }
 
   async findQuestion() {
@@ -60,8 +59,15 @@ class StartParser {
           prevElem = i - 1;
         }
 
-        const variables = Array.from(e.querySelectorAll(".yUJIWb")).map(
-          (e, index) => `${index + 1}: ${e.textContent}`
+        const variables = Array.from(
+          e.querySelectorAll(".yUJIWb").length > 0
+            ? e.querySelectorAll(".yUJIWb")
+            : e.querySelectorAll(".nWQGrd")
+        ).map(
+          (e, index) =>
+            ` ${index + 1}: ${
+              e.childNodes[0].childNodes[0].childNodes[1].textContent
+            }`
         );
 
         foundResults.push({
