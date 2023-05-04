@@ -23,7 +23,8 @@ class StartParser {
   async navigateToForm(goTo) {
     await this.page.goto(goTo);
   }
-
+  // Тут нужно сделать проверку,чтобы если сайт
+  // не требует аккаунта гугл, чтобы он не искал по этим классам, а пропускал этот шаг и делал дальше
   async fillLoginForm(login, pass) {
     await this.page.waitForSelector(".zHQkBf");
     await this.page.type('input[type="email"]', login);
@@ -33,6 +34,7 @@ class StartParser {
     await this.page.type('input[type="password"]', pass);
     await this.page.click("#passwordNext");
     await this.page.waitForNavigation();
+    await this.page.click(".l4V7wb");
     await this.page.waitForSelector(".Qr7Oae");
   }
 
@@ -75,12 +77,12 @@ class StartParser {
           answerOptions: variables,
         });
       });
-
       return foundResults;
     });
     this.allQuestion.push(...results);
   }
   getResult() {
+    console.log(this.allQuestion);
     return this.allQuestion;
   }
 

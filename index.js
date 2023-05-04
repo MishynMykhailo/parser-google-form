@@ -25,7 +25,7 @@ async function main() {
     }
   }
   const data = parser.getResult();
-  await parser.closeBrowser();
+  // await parser.closeBrowser();
   await answer.getOpenAi(data);
   answer.getResultAnswer();
 }
